@@ -1,12 +1,11 @@
 
 
-# ContactList
-
-
+# Users ContactList APP
+This tutorial follows the michaelcheng429/meanstacktutorial code base and the modification to it to include the Bootstrap Modal Dialog Functionality for Adding and Editing Contacts.
 
 ## Usage
 
-
+node /bin/www
 
 ## Developing
 
