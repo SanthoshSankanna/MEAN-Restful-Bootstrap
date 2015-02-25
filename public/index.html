@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AngularJS Project - Mean</title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+	</head>
+	<body ng-app="app">
+		<div class="container" ng-controller="AppCtrl">
+			<h3>Contact List APP</h3>
+			<button class="btn btn-primary" data-toggle="modal" data-target="#addModal" ng-click="openAddModal()">Add Contact</button>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone Number</th>
+						<th>Update Action</th>
+						<th>Delete Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="contact in contactlist">
+						<td>{{ contact.name }}</td>
+						<td>{{ contact.email }}</td>
+						<td>{{ contact.phonenumber }}</td>
+						<td><button class="btn btn-warning" data-toggle="modal" data-target="#addModal" ng-click="edit(contact._id)">Edit</button></td>
+						<td><button class="btn btn-danger" ng-click="remove(contact._id)">Delete</button></td>
+					</tr>
+				</tbody>
+			</table>
+			
+			<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+	      				<div class="modal-header">
+		      				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		      				<h4 class="modal-title" id="exampleModalLabel">Add Contact</h4>
+	      				</div>
+	      				<div class="modal-body">
+	      					<form class="form-horizontal">
+	      						<div class="form-group">
+	      							<label class="col-sm-3 control-label">Name:</label>
+									<div class="col-sm-6">
+										<input type="text" ng-model="contact.name" class="form-control">
+									</div>
+	      						</div>
+	      						<div class="form-group">
+	      							<label class="col-sm-3 control-label">Email:</label>
+									<div class="col-sm-6">
+										<input type="text" ng-model="contact.email" class="form-control" id="recipient-name">
+									</div>
+	      						</div>
+	      						<div class="form-group">
+	      							<label class="col-sm-3 control-label">Phone Number:</label>
+									<div class="col-sm-6">
+										<input type="text" ng-model="contact.phonenumber" class="form-control">
+									</div>
+	      						</div>
+	      					</form>
+	      				</div>
+	      				<div class="modal-footer">
+	      					<button class="btn btn-primary" id="addBtn" ng-click="addContact()" ng-show="showAddBtn">Add</button>
+	      					<button class="btn btn-info" id="updateBtn" ng-click="update()" ng-show="showUpdateBtn">Update</button>
+	      					<button class="btn btn-info" id="clearBtn" ng-click="deselect()">Clear</button>
+	      					<button class="btn btn-default" id="closeBtn" data-dismiss="modal">Cancel</button>
+	      				</div>
+	      			</div>
+	      		</div>
+	      	</div>
+		</div>
+
+		<script src="js/angular.min.js"></script>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="controllers/controller.js"></script>
+	</body>
+</html>
